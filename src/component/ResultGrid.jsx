@@ -39,14 +39,15 @@ const ResultGrid = () => {
           }
           if (activeTab == "video") {
             let response = await fatchVideo(query);
-           
+          
             data = response.hits.map((item) => ({
               id: item.id,
               type: "video",
               title: item.title,
               thumbnail: item.poster,
-             src: item.urls.mp4_preview,
+             src: item.urls.mp4,
               url: item.urls.mp4,
+              
             }));
 
             dispatch(setResults(data));
@@ -61,8 +62,6 @@ const ResultGrid = () => {
               src: items.images.original.url,
               url: items.url,
             }));
-
-          ;
 
             dispatch(setResults(data));
           }
